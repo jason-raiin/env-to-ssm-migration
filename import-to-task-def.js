@@ -23,7 +23,7 @@ async function getParams(nextToken, paramList) {
       const paramDefinitions = paramList.map(param => {
         const name = param.Name.replace('/project/env/', '');
         const arn = param.ARN;
-        return { "name": name, "arn": arn };
+        return { "name": name, "valueFrom": arn };
       });
       fs.writeFile('./params.json', JSON.stringify(paramDefinitions), function (err) {
         if (err) return console.log(err);
